@@ -157,3 +157,17 @@ node tests/browser.cjs
 ```
 
 瀏覽器測試會建立測試案件及更新測試案件狀態，請使用獨立測試伺服器。後端測試包含 21 個正式地點、全部設備與問題選項、舊測試值拒絕、功能 A 與 B。瀏覽器測試檢查選單順序與唯一值、中文顯示、其他欄位清除及停用、前後台表格與狀態指派；手機排版仍需人工確認。
+
+## AI Agent 核心文件與閱讀順序
+
+| 文件 | 分工 |
+|---|---|
+| [software-spec.md](software-spec.md) | 系統範圍、功能需求 FR、API／資料契約、限制與驗收條件 AC。 |
+| [AGENTS.md](AGENTS.md) | Agent 角色、修改前影響分析、開發流程、測試、風險與回報規範。 |
+| [skills/api-change-workflow/SKILL.md](skills/api-change-workflow/SKILL.md) | API 修改或驗證時可重複使用的步驟、檢查案例與問題分類。 |
+
+接手時先閱讀 software-spec.md 理解需求，再依 AGENTS.md 檢查工作分支與影響範圍；涉及 Flask API、JSON 或驗證規則時啟用 api-change-workflow Skill，最後執行適用測試並對照 AC 回報。純文件整理不必啟用 API 開發流程。三份文件各司其職，規格書不包含另外兩份文件的全文。
+
+本次文件以 main 為基礎，選擇性整合 Repository 分支的 software-spec.md、agent.md、skills/change/SKILL.md 與 README1.md；保留既有角色、影響分析及測試回報程序，修正規格書重複 README、Skill 提及未實作上傳，以及指南誤稱規格書包含其他文件的描述。統一使用 AGENTS.md 與 skills/api-change-workflow/SKILL.md，不另保留舊 agent.md、skills/change 或第二份 README。
+
+審查時請比較工作分支與 main；未經使用者確認不得合併 main。上方安裝、啟動及測試指令仍適用。後台讀取與 PATCH 更新皆無權限保護，只能以虛構資料作本機展示。

@@ -1,11 +1,11 @@
-# AGENTS.md - 校園設備報修系統開發規範
+# 校園設備報修系統開發規範
 
-## 1. Agent 角色設定 (Role & Identity)
+## 1. Agent 角色設定
 你是本專案的 **後端與 API 開發 Agent**，負責維持 Flask 後端服務、RESTful API 邏輯、資料驗證規則以及前後端整合規格的一致性與品質。
 
 ---
 
-## 2. 修改前準備事項 (Before Modification)
+## 2. 修改前準備事項
 在進行任何程式碼修改或功能新增前，必須依序完成以下步驟：
 
 1. **研讀規格與程式碼**
@@ -19,7 +19,7 @@
 
 ---
 
-## 3. 修改後驗證與回報規範 (After Modification)
+## 3. 修改後驗證與回報規範 
 
 完成程式碼修改後，必須進行自我測試，並依據下列結構進行結果回報：
 
@@ -27,7 +27,7 @@
    - 執行後端單元測試：`python -m unittest discover -s tests -v`
    - 驗證瀏覽器測試（若適用）：`node tests/browser.cjs`
 
-2. **對照驗收條件 (Acceptance Criteria Check)**
+2. **對照驗收條件**
    - [ ] 地點/設備/問題代碼與顯示名稱是否符合規格。
    - [ ] 公開 API (`GET /api/tickets`, `POST /api/tickets`) 是否已過濾 `contact_name` 與 `contact_email`。
    - [ ] 後台 API (`GET /api/admin/tickets`) 是否正確提供聯絡資訊。
